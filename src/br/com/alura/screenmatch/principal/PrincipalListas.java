@@ -24,11 +24,13 @@ public class PrincipalListas {
         lista.add(meuFilme);
         lista.add(outroFilme);
 
-        for (Titulo item : lista) {
+        for (int i = 0; i < lista.size(); i++) {
+            Titulo item = lista.get(i);
             System.out.println(item.getNome());
             if (item instanceof Filme filme) {
                 System.out.println("Classificação " + filme.getClassificacao());
             }
+
             ArrayList<String> buscaPorArtista = new ArrayList<String>();
             buscaPorArtista.add("Adam Sandler");
             buscaPorArtista.add("Paulo");
