@@ -16,8 +16,6 @@ public class PrincipalListas {
         filmeDoPaulo.avalia(10);
         Serie lost = new Serie("Lost", 2000);
 
-        Filme f1 = filmeDoPaulo;
-
         List<Titulo> lista = new LinkedList<>();
         lista.add(filmeDoPaulo);
         lista.add(meuFilme);
@@ -30,7 +28,7 @@ public class PrincipalListas {
                 System.out.println("Classificação " + filme.getClassificacao());
             }
 
-            ArrayList<String> buscaPorArtista = new ArrayList<String>();
+            ArrayList<String> buscaPorArtista = new ArrayList<>();
             buscaPorArtista.add("Adam Sandler");
             buscaPorArtista.add("Paulo");
             buscaPorArtista.add("Jacqueline");
