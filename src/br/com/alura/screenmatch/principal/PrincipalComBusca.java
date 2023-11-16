@@ -22,7 +22,7 @@ public class PrincipalComBusca {
         var busca = pesquisa.nextLine();
 
         String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=6585022c";
-
+        try {
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endereco)).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println();
@@ -34,14 +34,17 @@ public class PrincipalComBusca {
         //Titulo meuTitulo = gson.fromJson(json, Titulo.class);
         TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
         System.out.println(meuTituloOmdb);
-        try {
+            //try {
             Titulo meuTitulo = new Titulo(meuTituloOmdb);
             System.out.println("Meu titulo já convertido: ");
             System.out.println(meuTitulo);
         } catch (NumberFormatException e) {
             System.out.println("Ocorreu o erro: ");
             System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro de argumento, verique se não há espaços ou caracteres especiais.");
+        } finally {
+            System.out.println("O programa finalizou !");
         }
-        System.out.println("O programa finalizou !");
     }
 }
